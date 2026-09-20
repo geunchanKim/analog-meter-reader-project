@@ -1,0 +1,53 @@
+/**
+ * src/styles/tokens.css
+ *
+ * Design tokens for the whole app -- every color/font elsewhere should
+ * reference one of these variables rather than a hardcoded value, so a
+ * palette change is a one-file edit.
+ *
+ * Palette is drawn from the gauges themselves: graphite/steel bezel,
+ * bone-white dial face, black needle with a red tip -- not a generic
+ * dark-mode default.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+:root {
+  /* Surfaces -- graphite, like a steel gauge bezel. Lifted slightly
+     from near-black so the page doesn't read as an empty void. */
+  --color-bg: #1c1d20;
+  --color-surface: #24262a;
+  --color-surface-raised: #2c2e33;
+  --color-border: #3a3c42;
+
+  /* Text -- bone-white, like a dial face */
+  --color-text: #ece9e2;
+  --color-text-muted: #989591;
+
+  /* Signature accent -- needle-tip red */
+  --color-accent: #e15c50;
+  --color-accent-muted: #5c2f2c;
+  --color-accent-glow: rgba(225, 92, 80, 0.14);
+
+  /* Status colors, matching a gauge's own zone markings */
+  --color-success: #5cb89a;
+  --color-warning: #dfab4f;
+  --color-danger: #e15c50;
+
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}

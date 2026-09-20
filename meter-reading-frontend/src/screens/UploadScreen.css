@@ -1,0 +1,113 @@
+.upload-screen {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.upload-screen__header {
+  text-align: center;
+}
+
+.upload-screen__title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.upload-screen__subtitle {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.upload-screen__status {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload-screen__status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.upload-screen__status-label {
+  color: var(--color-text-muted);
+}
+
+.upload-screen__status-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.upload-screen__status-value--done {
+  color: var(--color-success);
+}
+
+.upload-screen__status-value--fail,
+.upload-screen__status-value--retake {
+  color: var(--color-danger);
+}
+
+.upload-screen__pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-warning);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.upload-screen__job-id {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.upload-screen__detail {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+}
+
+.upload-screen__error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-danger);
+  text-align: center;
+}
+
+.upload-screen__retry {
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 13px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.upload-screen__retry:hover {
+  border-color: var(--color-accent);
+}

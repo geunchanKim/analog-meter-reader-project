@@ -1,0 +1,33 @@
+# backend/requirements.txt
+#
+# Everything installs into ONE venv -- the torch/paddle process-conflict
+# constraint (see README's "How this got built" section) is enforced by
+# running separate Celery WORKER PROCESSES (workers/torch_worker.py,
+# workers/paddle_worker.py), not by separate virtual environments.
+
+# --- API server ---
+fastapi
+uvicorn[standard]
+python-multipart      # required for FastAPI's UploadFile (POST /gauges)
+
+# --- Database ---
+sqlalchemy
+psycopg[binary]        # Postgres driver -- DATABASE_URL must use postgresql+psycopg://
+python-dotenv
+
+# --- Task queue ---
+celery
+redis
+
+# --- Storage / external HTTP ---
+httpx                   # Supabase Storage uploads (db/storage.py), also used by openai SDK
+openai                  # Groq's API is OpenAI-compatible; see agent/llm_client.py
+
+# --- Stage 1+2 (torch side) ---
+ultralytics             # YOLOv8-pose keypoint model; pulls in torch
+opencv-python
+numpy
+
+# --- Stage 3 (paddle side) ---
+paddlepaddle
+paddleocr

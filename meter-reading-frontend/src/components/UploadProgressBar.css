@@ -1,0 +1,80 @@
+.upload-progress {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.upload-progress__track {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-surface-raised);
+  overflow: hidden;
+}
+
+.upload-progress__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-text);
+  transition: width 0.5s ease;
+}
+
+/* Moving diagonal stripes -- the "still actively working" cue for
+   whichever segment is currently in progress. Neutral white/gray, not
+   a color that reads as an alert -- red is reserved for the failed
+   state only (below). */
+.upload-progress__fill--active {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-text) 0 10px,
+    rgba(231, 229, 226, 0.45) 10px 20px
+  );
+  background-size: 28px 28px;
+  animation: upload-progress-stripes 0.9s linear infinite;
+}
+
+.upload-progress__fill--failed {
+  background: var(--color-danger);
+}
+
+.upload-progress__fill--done {
+  background: var(--color-success);
+}
+
+@keyframes upload-progress-stripes {
+  from { background-position: 0 0; }
+  to { background-position: 28px 0; }
+}
+
+.upload-progress__marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-bg);
+}
+
+.upload-progress__labels {
+  display: flex;
+  margin-top: 6px;
+}
+
+.upload-progress__label {
+  flex: 1;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.upload-progress__label:first-child {
+  text-align: left;
+}
+
+.upload-progress__label:last-child {
+  text-align: right;
+}
+
+.upload-progress__label--reached {
+  color: var(--color-text);
+  font-weight: 500;
+}
